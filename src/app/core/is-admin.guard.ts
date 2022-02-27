@@ -23,6 +23,11 @@ export class IsAdminGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+    if (this.userService.login() === 'ADMIN') {
+      return true;
+    } else {
+      this.router.navigate(['/homepage']);
+      return false;
+    }
   }
 }

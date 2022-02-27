@@ -22,6 +22,15 @@ export class IsConnectedGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+    if (
+      this.userService.login() === 'ADMIN' ||
+      this.userService.login() === 'USER'
+    ) {
+      console.log('connect');
+      return true;
+    } else {
+      this.router.navigate(['/homepage']);
+      return false;
+    }
   }
 }

@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private role: String;
+  private role: 'ANONYMOUS' | 'USER' | 'ADMIN';
 
   constructor() {
-    this.role = '';
+    this.role = 'ADMIN';
+  }
+
+  login() {
+    return this.role;
   }
 }

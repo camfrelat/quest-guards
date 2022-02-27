@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [IsAdminGuard, IsConnectedGuard],
+    canActivate: [IsConnectedGuard],
   },
   { path: 'admin', component: AdminComponent, canActivate: [IsAdminGuard] },
 ];
